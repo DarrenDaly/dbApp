@@ -1,0 +1,20 @@
+<div class="container"> <!--the div that gets put into where the placeholder is in index.html-->
+	<h4>Search the list by name, won't search by city. This uses filters to display search results dynamically</h4>
+
+
+	Search by name: <input ng-model="search.name"><br>
+	<br />
+	<ul>
+		<!--ng-repeat="person in people" is like a for loop, repeats until none left in people-->
+		<li ng-repeat="person in people | filter:search:name | orderBy:'city'"><span ng-bind="person.name + ' - ' + person.city"></li> <!--ng-bind is used to print out elements-->
+		<!-- | filter:name is filtering the results being displayed by checking the text field with that id.-->
+	</ul>
+	Person's Name:<br />
+	<input type="text" ng-model="newPerson.name" />
+	<br />
+	Person's City:<br />
+	<input type="text" ng-model="newPerson.city" />
+	<br />
+	<button ng-click="addPerson()">Add Person</button><!--ng-click is an action on a button click-->
+	<br />
+</div>
